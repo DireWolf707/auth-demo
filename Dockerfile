@@ -17,7 +17,7 @@ ENV MONGODB_URI=mongodb+srv://cms:mycms@cms.fsqzq1x.mongodb.net/?retryWrites=tru
 ENV PAYLOAD_SECRET=a971f34be6a6712b31e5696d
 ENV PORT=3000
 ENV PAYLOAD_PUBLIC_FRONTEND_URL=https://thriving-crumble-e9ff31.netlify.app
-ENV PAYLOAD_PUBLIC_BACKEND_URL=${RAILWAY_STATIC_URL}
+ENV PAYLOAD_PUBLIC_BACKEND_URL=https://ambitious-zinc-production.up.railway.app
 
 WORKDIR /home/node/app
 COPY package*.json  ./
