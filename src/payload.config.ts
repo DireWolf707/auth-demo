@@ -11,7 +11,7 @@ export default buildConfig({
   collections: [Admins, Users],
   // whitelist of domains to allow cookie auth from
   csrf: [process.env.PAYLOAD_PUBLIC_FRONTEND_URL],
-  cors: [process.env.PAYLOAD_PUBLIC_FRONTEND_URL],
+  cors: [String(process.env.PAYLOAD_PUBLIC_FRONTEND_URL)],
   cookiePrefix: "auth",
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
