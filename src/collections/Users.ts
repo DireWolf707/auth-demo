@@ -6,7 +6,7 @@ const Users: CollectionConfig = {
     tokenExpiration: 12 * 60 * 60, // 12 hrs (in sec)
     cookies: {
       secure: true,
-      sameSite: "lax",
+      sameSite: "none",
       // domain: "???",
     },
     // verify: true, // { //email gen and subject gen fxns }
