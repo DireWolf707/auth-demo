@@ -1,7 +1,9 @@
 import { CollectionConfig } from "payload/types"
+import Media from "./Media"
 
 const Users: CollectionConfig = {
   slug: "users",
+
   auth: {
     tokenExpiration: 12 * 60 * 60, // 12 hrs (in sec)
     cookies: {
@@ -40,15 +42,18 @@ const Users: CollectionConfig = {
     },
     // strategies: [{strategy: (ctx)=>ctx.au,}],
   },
+
   admin: {
     useAsTitle: "email",
   },
+
   access: {
     read: () => true,
     create: () => true,
     delete: () => true,
     update: () => true,
   },
+
   fields: [
     {
       name: "name",
@@ -56,6 +61,14 @@ const Users: CollectionConfig = {
       required: true,
       minLength: 2,
       // saveToJWT: true,
+      // validate: fnx // send true or string in case of error
+    },
+    {
+      name: "profilePicture",
+      type: "upload",
+      relationTo: Media.slug,
+      maxDepth: 1,
+      filterOptions: { mimeType: { contains: "image" } },
     },
   ],
 }
