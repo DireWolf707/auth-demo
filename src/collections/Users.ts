@@ -54,6 +54,7 @@ const Users: CollectionConfig = {
       name: "name",
       type: "text",
       required: true,
+      minLength: 2,
       // saveToJWT: true,
     },
   ],
