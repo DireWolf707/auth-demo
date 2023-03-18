@@ -19,7 +19,7 @@ const auth: IncomingAuthType = {
       <html>
         <body>
           <h1>
-            Hello, ${user.name}!
+            Hello, ${req.user.name}! 
           </h1>
           <p>
             You are receiving this because you (or someone else) have 
