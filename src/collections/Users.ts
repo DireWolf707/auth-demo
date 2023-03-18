@@ -1,6 +1,6 @@
 import { CollectionConfig } from "payload/types"
 import { IncomingAuthType } from "payload/dist/auth/types"
-import List from 'payload/dist/admin/components/views/collections/List/Default'
+// import List from 'payload/dist/admin/components/views/collections/List/Default'
 
 const auth: IncomingAuthType = {
   tokenExpiration: 12 * 60 * 60, // 12 hrs (in sec)
@@ -51,15 +51,14 @@ const Users: CollectionConfig = {
     group: "Authentication",
     disableDuplicate: true,
     // description: 'description of collection',
-
-    components: {
-      views: {
-        List: (props) => {
-          props.collection.upload = false
-          return List(props)
-        },
-      },
-    },
+    // components: {
+    //   views: {
+    //     List: (props) => {
+    //       props.collection.upload = false
+    //       return List(props)
+    //     },
+    //   },
+    // },
   },
 
   access: {
@@ -67,27 +66,6 @@ const Users: CollectionConfig = {
     create: () => true,
     delete: () => true,
     update: () => true,
-  },
-
-  upload: {
-    staticURL: "/media",
-    staticDir: "media",
-    imageSizes: [
-      {
-        name: "small",
-        width: 42,
-        height: 50,
-        position: "centre",
-      },
-      {
-        name: "large",
-        width: 160,
-        height: 180,
-        position: "centre",
-      },
-    ],
-    adminThumbnail: "profile",
-    mimeTypes: ["image/*"],
   },
 
   fields: [
@@ -100,13 +78,13 @@ const Users: CollectionConfig = {
       // validate: fnx // send true or string in case of error
     },
 
-    // {
-    //   name: "profilePicture",
-    //   type: "upload",
-    //   relationTo: Media.slug,
-    //   filterOptions: { mimeType: { contains: "image" } },
-    //   // maxDepth: 0,
-    // },
+    {
+      name: "profilePicture",
+      type: "upload",
+      relationTo: "media",
+      // filterOptions: { mimeType: { contains: "image" } },
+      // maxDepth: 0,
+    },
   ],
 
   /*
